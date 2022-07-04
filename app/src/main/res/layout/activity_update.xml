@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.UpdateActivity">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"        >
+
+        <TextView
+            android:id="@+id/tvadd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="update"
+            android:textColor="@color/darkk"
+            android:textStyle="bold"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/ednme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvadd"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/edittxt"
+            android:hint="Name"
+            android:padding="10dp"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/edmobikle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittxt"
+            android:layout_below="@+id/ednme"
+            android:layout_marginLeft="15dp"
+            android:hint="Mobile"
+            android:inputType="number"
+            android:maxLength="10"
+            android:layout_marginRight="15dp"
+            android:textSize="14sp"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/edtime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittxt"
+            android:layout_below="@+id/edmobikle"
+            android:layout_marginLeft="15dp"
+            android:hint="Date"
+            android:layout_marginRight="15dp"
+            android:textSize="14sp"
+            android:padding="10dp"
+            android:inputType="date"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/Amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittxt"
+            android:layout_below="@+id/edtime"
+            android:layout_marginLeft="15dp"
+            android:hint="Amount"
+            android:inputType="number"
+            android:layout_marginRight="15dp"
+            android:textSize="14sp"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/Amount"
+>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnupdt"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginTop="15dp"
+            android:text="Update"
+            android:background="@drawable/button"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btndlt"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@+id/Amount"
+            android:layout_marginTop="15dp"
+            android:text="Delete"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/btnupdt"
+            android:background="@drawable/button"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
