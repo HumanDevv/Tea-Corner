@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick(View view){
         switch (view.getId()){
-            case R.id.button1:{
+         /*   case R.id.button1:{
                 createAlarmActivity();
                 break;
             }
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.button3:{
                 createAlarmReceiver();
                 break;
-            }
+            }*/
         }
     }
 

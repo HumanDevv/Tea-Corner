@@ -1,10 +1,10 @@
 package com.reva.teacorner.Activity
 
-import android.app.Notification
-import android.app.NotificationChannel
-import android.app.NotificationManager
+import android.app.*
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.os.SystemClock
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
@@ -13,38 +13,39 @@ import com.reva.teacorner.R
 
 
 class MainActivity1 : AppCompatActivity() {
-    // declaring variables
-    /*lateinit var notificationManager: NotificationManager
-    lateinit var notificationChannel: NotificationChannel
-    lateinit var builder: Notification.Builder
-    private val channelId = "i.apps.notifications"
-    private val description = "Test notification"
-
+    var btnOneTime:Button? = null
+    var btnRepeating:Button? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        btnRepeating= findViewById(R.id.btnRepeating)
+        btnOneTime= findViewById(R.id.btnOneTime)
+        btnOneTime!!.setOnClickListener {
+            startAlarm(false)
+        }
 
-        // accessing button
-        val btn = findViewById<Button>(R.id.btn)
+        btnRepeating!!.setOnClickListener {
+            startAlarm(true)
+        }
+    }
+    private fun startAlarm(isRepeat: Boolean) {
+        val manager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val myIntent: Intent
+        val pendingIntent: PendingIntent
 
-        // it is a class to notify the user of events that happen.
-        // This is how you tell the user that something has happened in the
-        // background.
-        notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        myIntent = Intent(this, AlarmBroadCastReceiver::class.java)
+        pendingIntent = PendingIntent.getBroadcast(this, 0, myIntent, 0)
 
-        // onClick listener for the button
-       btn.setOnClickListener {
-           val builder: NotificationCompat.Builder = NotificationCompat.Builder(this, "CHANNEL_ID")
-               .setSmallIcon(R.drawable.ic_launcher_background)
-               .setContentTitle("textTitle")
-               .setContentText("textContent")
-               .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-           val notificationManager = NotificationManagerCompat.from(this)
+        if (!isRepeat)
+            manager[AlarmManager.RTC,
+                    SystemClock.elapsedRealtime() + 10] = pendingIntent
+        else
+            manager.setRepeating(
+                AlarmManager.RTC,
+                SystemClock.elapsedRealtime() + 1000,
+                10 * 1000.toLong(),
+                pendingIntent
+            )
 
-// notificationId is a unique int for each notification that you must define
-
-// notificationId is a unique int for each notification that you must define
-           notificationManager.notify(123, builder.build())
-       }
-}}*/
+    }
 }
